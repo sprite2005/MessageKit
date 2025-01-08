@@ -130,17 +130,16 @@ tasks.named("javadoc").configure {
 //    }
 //}
 
-println "Available compoments!!!"
-components.each {
-    println "Available component: ${it.name}"
-}
+
 
 publishing {
     publications {
         // Configure the Maven publication
         release(MavenPublication) {
 
-
+            afterEvaluate {
+                from components.release
+            }
 
             // Add the AAR artifact for the Android release build
             //from components.release
@@ -149,12 +148,12 @@ publishing {
             version = '1.0.0alpha5'
             artifactId = 'messagekit'
 
-            artifact("${buildDir}/outputs/aar/messagekit-release.aar") {
-                extension = 'aar'
-            }
+//            artifact("${buildDir}/outputs/aar/messagekit-release.aar") {
+//                extension = 'aar'
+//            }
 
             // Attach additional artifacts
-            artifact tasks.named("sourcesJar")
+            // artifact tasks.named("sourcesJar")
             // artifact tasks.named("javadocJar")
         }
     }

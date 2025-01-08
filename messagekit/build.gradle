@@ -28,6 +28,14 @@ android {
     }
 
     android {
+        publishing {
+            singleVariant("release") {
+                withSourcesJar()
+            }
+        }
+    }
+
+    android {
         lintOptions {
             abortOnError false
         }
