@@ -139,17 +139,19 @@ publishing {
     publications {
         // Configure the Maven publication
         release(MavenPublication) {
+
+
+
+            // Add the AAR artifact for the Android release build
+            //from components.release
+            // Metadata for the publication
+            groupId = 'tz.co.hosannahighertech'
+            version = '1.0.0alpha5'
             artifactId = 'messagekit'
 
             artifact("${buildDir}/outputs/aar/messagekit-release.aar") {
                 extension = 'aar'
             }
-            // Add the AAR artifact for the Android release build
-            //from components.release
-            // Metadata for the publication
-            groupId = 'tz.co.hosannahighertech'
-            artifactId = 'messagekit'
-            version = '1.0.0alpha5'
 
             // Attach additional artifacts
             artifact tasks.named("sourcesJar")
@@ -161,4 +163,8 @@ publishing {
         // Specify a local Maven repository (JitPack uses publishToMavenLocal)
         mavenLocal()
     }
+}
+
+tasks.named("publishReleasePublicationToMavenLocal") {
+    dependsOn("assembleRelease")
 }
