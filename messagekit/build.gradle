@@ -1,9 +1,15 @@
-apply plugin: 'com.android.library'
-// apply plugin: 'com.jfrog.bintray'
-// apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'maven-publish'
+//apply plugin: 'com.android.library'
+//// apply plugin: 'com.jfrog.bintray'
+//// apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'maven-publish'
+
+plugins {
+    id 'com.android.library'
+    id "maven-publish"
+}
 
 android {
+    namespace "tz.co.hosannahighertech.messagekit"
     compileSdkVersion 34
 
     defaultConfig {
@@ -12,8 +18,16 @@ android {
         versionName "1.0.0alpha5"
         consumerProguardFiles 'proguard.txt'
     }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {}
+    }
+
     android {
-        namespace "tz.co.hosannahighertech.messagekit"
         lintOptions {
             abortOnError false
         }
@@ -30,7 +44,7 @@ java {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
