@@ -1,2 +1,4 @@
 jdk:
   - openjdk11
+gradle:
+  - gradle-8.1.1
