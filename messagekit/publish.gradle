@@ -130,3 +130,29 @@ tasks.named("javadoc").configure {
 //        }
 //    }
 //}
+
+publishing {
+    publications {
+        // Configure the Maven publication
+        release(MavenPublication) {
+            afterEvaluate {
+                // Add the AAR artifact for the Android release build
+                // from components["release"]
+
+                // Metadata for the publication
+                groupId = 'tz.co.hosannahighertech'
+                artifactId = 'messagekit'
+                version = '1.0.0alpha5'
+            }
+
+            // Attach additional artifacts
+            artifact tasks.named("sourcesJar")
+            // artifact tasks.named("javadocJar")
+        }
+    }
+
+    repositories {
+        // Specify a local Maven repository (JitPack uses publishToMavenLocal)
+        mavenLocal()
+    }
+}
