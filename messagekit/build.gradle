@@ -13,6 +13,7 @@ android {
         consumerProguardFiles 'proguard.txt'
     }
     android {
+        namespace "tz.co.hosannahighertech.messagekit"
         lintOptions {
             abortOnError false
         }
