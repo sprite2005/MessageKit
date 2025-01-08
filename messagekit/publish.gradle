@@ -131,19 +131,20 @@ tasks.named("javadoc").configure {
 //    }
 //}
 
+components.each {
+    println "Available component: ${it.name}"
+}
+
 publishing {
     publications {
         // Configure the Maven publication
         release(MavenPublication) {
-            afterEvaluate {
-                // Add the AAR artifact for the Android release build
-                // from components["release"]
-
-                // Metadata for the publication
-                groupId = 'tz.co.hosannahighertech'
-                artifactId = 'messagekit'
-                version = '1.0.0alpha5'
-            }
+            // Add the AAR artifact for the Android release build
+            from components.findByName('release')
+            // Metadata for the publication
+            groupId = 'tz.co.hosannahighertech'
+            artifactId = 'messagekit'
+            version = '1.0.0alpha5'
 
             // Attach additional artifacts
             artifact tasks.named("sourcesJar")
