@@ -18,6 +18,7 @@ android {
         }
     }
     android {
+        namespace "tz.co.hosannahighertech.messagekit.sample"
         lintOptions {
             abortOnError false
         }
