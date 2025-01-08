@@ -22,45 +22,45 @@ def developerEmail = 'mwinjilisti@gmail.com'
 version = libraryVersion
 group = libraryGroupId
 
-install {
-    repositories.mavenInstaller {
-        // This generates POM.xml with proper parameters
-        pom {
-            project {
-                packaging 'aar'
-                groupId libraryGroupId
-                artifactId libraryArtifactId
-                version libraryVersion
-
-                // Add your description here
-                name libraryName
-                description libraryDesc
-                url libraryURL
-
-                // Set your license
-                licenses {
-                    license {
-                        name licenseName
-                        url licenseUrl
-                    }
-                }
-                developers {
-                    developer {
-                        id developerId
-                        name developerName
-                        email developerEmail
-                    }
-                }
-                scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url libraryURL
-
-                }
-            }
-        }
-    }
-}
+//install {
+//    repositories.mavenInstaller {
+//        // This generates POM.xml with proper parameters
+//        pom {
+//            project {
+//                packaging 'aar'
+//                groupId libraryGroupId
+//                artifactId libraryArtifactId
+//                version libraryVersion
+//
+//                // Add your description here
+//                name libraryName
+//                description libraryDesc
+//                url libraryURL
+//
+//                // Set your license
+//                licenses {
+//                    license {
+//                        name licenseName
+//                        url licenseUrl
+//                    }
+//                }
+//                developers {
+//                    developer {
+//                        id developerId
+//                        name developerName
+//                        email developerEmail
+//                    }
+//                }
+//                scm {
+//                    connection gitUrl
+//                    developerConnection gitUrl
+//                    url libraryURL
+//
+//                }
+//            }
+//        }
+//    }
+//}
 
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
@@ -87,43 +87,43 @@ artifacts {
     archives sourcesJar
 }
 
-// Bintray
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-
-    configurations = ['archives']
-    pkg {
-        repo = bintrayRepo
-        name = libraryName
-
-        desc = libraryDesc
-        labels = ['Chatkit', 'Chat', 'Messaging', 'Android', 'Library']
-        userOrg = "hosannahighertechorg"
-
-        websiteUrl = libraryURL
-        vcsUrl = gitUrl
-        websiteUrl = libraryURL
-        licenses = allLicenses
-        issueTrackerUrl = 'https://github.com/hosannahighertech/MessageKit/issues'
-        githubRepo = 'hosannahighertech/MessageKit'
-
-        publish = true
-        override = true
-        publicDownloadNumbers = true
-
-        version {
-            name = libraryVersion
-            released  = new Date()
-            vcsTag = libraryVersion
-            attributes = ['version': '1','released':true]
-            //Sign 'em all. Required by Maven Central
-            gpg {
-                sign = true
-            }
-        }
-    }
-}
+//// Bintray
+//Properties properties = new Properties()
+//properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//
+//bintray {
+//    user = properties.getProperty("bintray.user")
+//    key = properties.getProperty("bintray.apikey")
+//
+//    configurations = ['archives']
+//    pkg {
+//        repo = bintrayRepo
+//        name = libraryName
+//
+//        desc = libraryDesc
+//        labels = ['Chatkit', 'Chat', 'Messaging', 'Android', 'Library']
+//        userOrg = "hosannahighertechorg"
+//
+//        websiteUrl = libraryURL
+//        vcsUrl = gitUrl
+//        websiteUrl = libraryURL
+//        licenses = allLicenses
+//        issueTrackerUrl = 'https://github.com/hosannahighertech/MessageKit/issues'
+//        githubRepo = 'hosannahighertech/MessageKit'
+//
+//        publish = true
+//        override = true
+//        publicDownloadNumbers = true
+//
+//        version {
+//            name = libraryVersion
+//            released  = new Date()
+//            vcsTag = libraryVersion
+//            attributes = ['version': '1','released':true]
+//            //Sign 'em all. Required by Maven Central
+//            gpg {
+//                sign = true
+//            }
+//        }
+//    }
+//}
