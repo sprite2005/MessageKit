@@ -1,1 +1,2 @@
-include ':sample', ':messagekit'
+// include ':sample', ':messagekit'
+include ':messagekit'

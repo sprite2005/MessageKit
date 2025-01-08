@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 // apply plugin: 'com.jfrog.bintray'
 // apply plugin: 'com.github.dcendents.android-maven'
- apply plugin: 'maven-publish'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion 34
@@ -30,7 +30,7 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
-    implementation "com.google.android:flexbox:2.0.1"
+    implementation "com.google.android.flexbox:flexbox:3.0.0"
 }
 
 apply from: 'publish.gradle'
